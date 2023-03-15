@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Example Form Page</title>
+</head>
+<body>
+	<form name="testForm" action="submit-form.php" method="post" onsubmit="return validateForm()" target="_blank">
+		<h2>Patient Contact Details</h2>
+		<label for="fullName">Full Name:</label>
+		<input type="text" id="fullName" name="fullName" required>
+		<br><br>
+		<label for="patientId">Patient ID (if exists):</label>
+		<input type="text" id="patientId" name="patientId">
+		<br><br>
+		<label for="contactNumber">Contact Number:</label>
+		<input type="text" id="contactNumber" name="contactNumber" required>
+		<br><br>
+		<label for="email">Email ID:</label>
+		<input type="email" id="email" name="email" required>
+		<br><br>
+    
+		<h2>Address</h2>
+		<label for="houseNumber">House Number:</label>
+		<input type="text" id="houseNumber" name="houseNumber" required>
+		<br><br>
+		<label for="street">Street:</label>
+		<input type="text" id="street" name="street" required>
+		<br><br>
+		<label for="area">Area:</label>
+		<input type="text" id="area" name="area" required>
+		<br><br>
+		<label for="district">District:</label>
+		<select id="district" name="district" required>
+			<option value="Choose">Choose</option>
+			<option value="District 1">District 1</option>
+			<option value="District 2">District 2</option>
+			<option value="District 3">District 3</option>
+		</select>
+		<br><br>
+
+		<h2>Test Details</h2>
+<label>Test Type:</label><br>
+<input type="checkbox" id="testType1" name="testType[]" value="CBC">
+<label for="testType1">CBC</label>
+<br>
+<input type="checkbox" id="testType2" name="testType[]" value="Complete Urine">
+<label for="testType2">Complete Urine</label>
+<br>
+<input type="checkbox" id="testType3" name="testType[]" value="Lipid Profile">
+<label for="testType3">Lipid Profile</label>
+<br>
+<input type="checkbox" id="testType4" name="testType[]" value="Thyroid Stimulating Hormone(TSH)">
+<label for="testType4">Thyroid Stimulating Hormone(TSH)</label>
+<br>
+<input type="checkbox" id="testType5" name="testType[]" value="Glucose Test">
+<label for="testType5">Glucose Test</label>
+<br><br>
+        <h2>Report Copy</h2>
+		<label for="reportCopy"></label>
+		<input type="radio" id="reportCopy" name="reportCopy" value="Email">Email
+		<input type="radio" id="reportCopy" name="reportCopy" value="Physical">Physical
+		<br><br>
+        <h2>Test Date</h2>
+		<label for="testDate"></label>
+		<input type="date" id="testDate" name="testDate" required>
+		<br><br>
+        <h2>Test Time</h2>
+		<label for="testTime"></label>
+		<input type="time" id="testTime" name="testTime" required>
+		<br><br>
+        <input type="reset" value="Reset">
+		<input type="submit" value="Submit">
+	</form>
+
+	<script>
+		function validateForm() {
+			// Get form fields
+			var fullName = document.forms["testForm"]["fullName"].value;
+			var contactNumber = document.forms["testForm"]["contactNumber"].value;
+			var email = document.forms["testForm"]["email"].value;
+			var houseNumber = document.forms["testForm"]["houseNumber"].value;
+			var street = document.forms["testForm"]["street"].value;
+			var area = document.forms["testForm"]["area"].value;
+			var district = document.forms["testForm"]["district"].value;
+			var testType = document.forms["testForm"]["testType[]"];
+			var testTypeChecked = false;
+			var reportCopy = document.forms["testForm"]["reportCopy"].value;
+			var testDate = document.forms["testForm"]["testDate"].value;
+			var testTime = document.forms["testForm"]["testTime"].value;
+			
+			// Validate form fields
+			if (fullName == "") {
+				alert("Please enter your full name.");
+				return false;
+			}
+			if (contactNumber == "") {
+				alert("Please enter your contact number.");
+				return false;
+			}
+			if (email == "") {
+				alert("Please enter your email address.");
+				return false;
+			}
+			if (houseNumber == "") {
+				alert("Please enter your house number.");
+				return false;
+			}
+			if (street == "") {
+				alert("Please enter your street.");
+				return false;
+			}
+			if (area == "") {
+				alert("Please enter your area.");
+				return false;
+			}
+			if (district == "Choose") {
+				alert("Please choose your district.");
+				return false;
+			}
+			for (var i = 0; i < testType.length; i++) {
+				if (testType[i].checked) {
+					testTypeChecked = true;
+				}
+			}
+			if (!testTypeChecked) {
+				alert("Please select at least one test type.");
+				return false;
+			}
+			if (testDate == "") {
+				alert("Please select a test date.");
+				return false;
+			}
+			if (testTime == "") {
+				alert("Please select a test time.");
+				return false;
+			}
+			
+			// Form is valid
+			return true;
+		    }
+            </script>
+</body>
+</html>

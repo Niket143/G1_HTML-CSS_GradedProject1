@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Pharmacy</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-y: scroll;
+        }
+        header {
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgb(85, 85, 85);
+            z-index: 9999;
+            text-align: center;
+        }
+        nav {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+            padding: 0 20px;
+            z-index: 999;
+            background-color: rgb(131, 128, 128);
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        li {
+            position: relative;
+        }
+        a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 0 10px;
+            height: 50px;
+            line-height: 50px;
+        }
+        a:hover {
+            background-color: #353232;
+        }
+        ul ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(182, 177, 177, 0.2);
+        }
+        li:hover > ul {
+            
+            display: block;
+        }
+        ul ul li {
+            display: block;
+            width: 200px;
+        }
+        ul ul a {
+            padding: 10px;
+            height: auto;
+            line-height: normal;
+        }
+         @media (max-width: 768px) {
+            nav {
+            flex-direction: column;
+            }
+            li {
+            width: 100%;
+            }
+            ul ul {
+            position: static;
+            display: block;
+            box-shadow: none;
+            }
+            li:hover > ul {
+             display: none;
+            }
+         }
+
+		.container img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+         } 
+        header, footer {
+            text-align: center;
+            background-color: #464444;
+            padding: 0px;
+        }
+        img {
+            padding: 2px;
+			border-color:steelblue ;
+            border-style:solid;
+            border-width: 2px;
+		}
+
+        .slides {
+         -webkit-animation: slide 2s infinite;
+         animation: slide 2s infinite;
+        }
+
+        @-webkit-keyframes slide {
+         0% { opacity: 0; }
+         20% { opacity: 1; }
+         80% { opacity: 1; }
+         100% { opacity: 0; }
+        }
+
+        @keyframes slide {
+        0% { opacity: 0; }
+        20% { opacity: 1; }
+        80% { opacity: 1; }
+        100% { opacity: 0; }
+        }
+
+        .product-card {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  width: 200px;
+  height: 300px;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  width: 220px;
+  height: 320px;
+}
+
+.product-card img {
+  max-width: 100%;
+  max-height: 200px;
+}
+
+.price-after-offer {
+  color: green;
+}
+
+.add-to-cart {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background-color: rgb(250, 234, 230);
+  border-color: rgb(0, 255, 76);
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pharmacy</h1>
+        <nav>
+            <ul>
+                <li><a href="#home" style="color:white"><strong>Home</strong></a></li>
+                <li><a href="#our-medicines"style="color:white"><strong>Our Medicines</strong> </a>
+                    <ul>
+                        <li><a href="#fever" style="color: blue;">Fever</a></li>
+                        <li><a href="#muscle-pains" style="color: blue;">Muscle Pains</a></li>
+                        <li><a href="#cold-cough" style="color: blue;">Cold &amp; Cough</a></li>
+                    </ul>
+                </li>
+                <li><a href="#health-care"style="color:white"><strong>Health Care</strong></a>
+                    <ul>
+                        <li><a href="#baby-care" style="color: blue;">Baby Care</a></li>
+                        <li><a href="#skin-care" style="color: blue;">Skin Care</a></li>
+                        <li><a href="#home-care" style="color: blue;">Home Care</a></li>
+                        <li><a href="#personal-care" style="color: blue;">Personal Care</a></li>
+                        <li><a href="#pet-care" style="color: blue;">Pet Care</a></li>
+                    </ul>
+                </li>
+                <li><a href="lab-test.html" style="color:white"  target="_blank"><strong>Lab Test</strong></a></li>
+            </ul>
+        </nav>
+
+          <div class="slideshow">
+            <img class="slides" src="C:\Users\Asus\Desktop\New folder\Images fot HTML Assignment\Images\Animation\ani1.jpg">
+            <img class="slides" src="C:\Users\Asus\Desktop\New folder\Images fot HTML Assignment\Images\Animation\ani2.jpg">
+            <img class="slides" src="C:\Users\Asus\Desktop\New folder\Images fot HTML Assignment\Images\Animation\ani3.jpg">
+            <img class="slides" src="C:\Users\Asus\Desktop\New folder\Images fot HTML Assignment\Images\Animation\ani4.jpg">
+            <img class="slides" src="C:\Users\Asus\Desktop\New folder\Images fot HTML Assignment\Images\Animation\ani5.jpg">
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+          </div>
+          <section class="covid-care">
+            <div class="product-card">
+              <img src="C:\Users\Asus\Desktop\New folder\Images fot HTML Assignment\Images\Products\c1.jpg" alt="Product Image">
+              <h2>Product Name</h2>
+              <p class="price">Price: $10</p>
+              <p class="price-after-offer">Price After Offer: $8</p>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="C:\Users\Asus\Desktop\New folder\Images fot HTML Assignment\Images\Products\c2.jpg" alt="Product Image">
+                <h2>Product Name</h2>
+                <p class="price">Price: $10</p>
+                <p class="price-after-offer">Price After Offer: $8</p>
+                <button class="add-to-cart">Add to Cart</button>
+              </div>
+              <div class="product-card">
+                <img src="C:\Users\Asus\Desktop\New folder\Images fot HTML Assignment\Images\Products\c3.jpg" alt="Product Image">
+                <h2>Product Name</h2>
+                <p class="price">Price: $10</p>
+                <p class="price-after-offer">Price After Offer: $8</p>
+                <button class="add-to-cart">Add to Cart</button>
+              </div>
+              <div class="product-card">
+                <img src="C:\Users\Asus\Desktop\New folder\Images fot HTML Assignment\Images\Products\c4.jpg" alt="Product Image">
+                <h2>Product Name</h2>
+                <p class="price">Price: $10</p>
+                <p class="price-after-offer">Price After Offer: $8</p>
+                <button class="add-to-cart">Add to Cart</button>
+              </div>
+          </section>
+          <section class="diabetes-care">
+            <div class="product-card">
+              <img src="C:\Users\Asus\Desktop\New folder\Images fot HTML Assignment\Images\Products\d1.jpg" alt="Product Image">
+              <h2>Product Name</h2>
+              <p class="price">Price: $10</p>
+              <p class="price-after-offer">Price After Offer: $8</p>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="C:\Users\Asus\Desktop\New folder\Images fot HTML Assignment\Images\Products\d2.jpg" alt="Product Image">
+                <h2>Product Name</h2>
+                <p class="price">Price: $10</p>
+                <p class="price-after-offer">Price After Offer: $8</p>
+                <button class="add-to-cart">Add to Cart</button>
+              </div>
+              <div class="product-card">
+                <img src="C:\Users\Asus\Desktop\New folder\Images fot HTML Assignment\Images\Products\d3.jpg" alt="Product Image">
+                <h2>Product Name</h2>
+                <p class="price">Price: $10</p>
+                <p class="price-after-offer">Price After Offer: $8</p>
+                <button class="add-to-cart">Add to Cart</button>
+              </div>
+              <div class="product-card">
+                <img src="C:\Users\Asus\Desktop\New folder\Images fot HTML Assignment\Images\Products\d4.jpg" alt="Product Image">
+                <h2>Product Name</h2>
+                <p class="price">Price: $10</p>
+                <p class="price-after-offer">Price After Offer: $8</p>
+                <button class="add-to-cart">Add to Cart</button>
+              </div>
+            <!-- Add more product cards here -->
+          </section>
+    </header>
+        <img src="my-image.jpg" alt="My Image">
+            <script>
+                var labTestLink = document.querySelector('a[href="#lab-test"]');
+                var labTestForm = document.querySelector('#lab-test-form');
+                labTestLink.addEventListener('click', function(e) {
+                 e.preventDefault();
+                 labTestForm.style.display = 'block';
+                });
+
+                var slideIndex = 1;
+                showSlides(slideIndex);
+
+                 var slideIndex = 0;
+                showSlides();
+
+                function showSlides(n) {
+                 var i;
+                var slides = document.getElementsByClassName("slides");
+                 for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";  
+                 }
+                 slideIndex++;
+                 if (slideIndex > slides.length) {slideIndex = 1}    
+                 slides[slideIndex-1].style.display = "block";  
+                 setTimeout(showSlides, 2000); // Change image every 2 seconds
+                }
+
+            
+            </script> 
+            
+           	<footer>
+                <p>&copy; 2023 Pharmacy. All rights reserved. This website is only for demonstration purposes.</p>
+	        </footer>
+    </body>
+</html>
